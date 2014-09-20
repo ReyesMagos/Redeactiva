@@ -44,6 +44,10 @@ public class FacadeController {
 		createEventController.dissmissProgressDialog();
 	}
 
+	public void showEventCreateMessage(String s) {
+		createEventController.showAlertMessage("Alerta", s);
+	}
+
 	public void login(String username, String password) {
 		loginController.longIn(username, password);
 		loginController.showProgressDialog(

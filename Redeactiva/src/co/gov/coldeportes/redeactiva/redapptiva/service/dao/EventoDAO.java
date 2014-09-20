@@ -29,9 +29,13 @@ public class EventoDAO extends AbstractDAO {
 			public void done(ParseException arg0) {
 				// TODO Auto-generated method stub
 				if (arg0 == null)
-					Log.i("Evento", "Evento creado Bien");
+					FacadeController.getInstance().showEventCreateMessage(
+							"Evento Creado Correctamente");
+
 				else
-					Log.i("Evento", arg0.getMessage().toString());
+					FacadeController.getInstance().showEventCreateMessage(
+							"Error al Crear Evento. "
+									+ arg0.getMessage().toString());
 
 				FacadeController.getInstance()
 						.dissmissProgressDialogCreateEvent();

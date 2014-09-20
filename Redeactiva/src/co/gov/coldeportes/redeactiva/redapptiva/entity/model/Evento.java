@@ -10,11 +10,21 @@ public class Evento {
 	private String municipio;
 	private String direccion;
 	private Usuario creador;
+	private String objectId;
 	
 	
 	public String getDeporte() {
 		return deporte;
 	}
+	
+	public String getObjectId() {
+		return objectId;
+	}
+
+	public void setObjectId(String objectId) {
+		this.objectId = objectId;
+	}
+
 	public void setDeporte(String deporte) {
 		this.deporte = deporte;
 	}
