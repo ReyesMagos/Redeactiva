@@ -62,6 +62,9 @@ public class LoginController extends AbstractController {
 					loggedUser.setEmail(arg0.getEmail());
 					loggedUser.setUsername(arg0.getUsername());
 					loggedUser.setUserType(arg0.getInt("userType"));
+					if (loggedUser.getUserType() == 1) {
+						loggedUser.setDiscapacity(arg0.getString("discapacity"));
+					}
 					FacadeController.getInstance().setLoggedUser(loggedUser);
 					changeActivity(NewsActivity.class);
 				}
