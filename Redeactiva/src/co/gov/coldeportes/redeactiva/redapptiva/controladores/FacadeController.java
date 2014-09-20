@@ -2,12 +2,14 @@ package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 import android.app.Activity;
 
 public class FacadeController {
 
 	private static FacadeController instance;
 	private LoginController loginController;
+	private Usuario loggedUser;
 
 	private FacadeController() {
 
@@ -43,4 +45,14 @@ public class FacadeController {
 						.getString(R.string.sing_up_process_label));
 		loginController.SingUp(username, password, name, discapacity, email);
 	}
+
+	public Usuario getLoggedUser() {
+		return loggedUser;
+	}
+
+	public void setLoggedUser(Usuario loggedUser) {
+		this.loggedUser = loggedUser;
+	}
+	
+	
 }
