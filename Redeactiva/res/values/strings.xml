@@ -11,11 +11,12 @@
     <string name="password_label">Contrasena</string>
     <string name="alert_label">Alerta</string>
     <string name="sing_up_success_label">Registro Exitoso</string>
-     <string name="cancel_button_label">Cancelar</string>
+    <string name="cancel_button_label">Cancelar</string>
     <string name="sing_up_wrong_label">Hubo un error en su registro cod: </string>
     <string name="login_process_ongoing">Iniciando Sesion Espere Por Favor</string>
     <string name="sing_up_button_label">Registrarse</string>
     <string name="sing_up_process_label">Registrando Por Favor Espere</string>
-     <string name="log_in_process_label">Logeando Por Favor Espere</string>
+    <string name="log_in_process_label">Logeando Por Favor Espere</string>
+    <string name="title_activity_news">NewsActivity</string>
 
 </resources>

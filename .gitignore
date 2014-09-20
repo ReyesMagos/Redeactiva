@@ -39,7 +39,7 @@ Icon
 *.cache
 *.ap_
 *.classpath
-Redeactiva\bin\*
+Redeactiva/bin/
 
 Redeactiva/.classpath
 Redeactiva/.classpath

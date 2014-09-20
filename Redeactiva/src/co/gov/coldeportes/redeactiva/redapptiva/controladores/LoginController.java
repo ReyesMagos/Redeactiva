@@ -1,6 +1,8 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import co.gov.coldeportes.redeactiva.redapptiva.NewsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 
 import com.parse.LogInCallback;
 import com.parse.ParseUser;
@@ -55,7 +57,16 @@ public class LoginController extends AbstractController {
 			public void done(ParseUser arg0, com.parse.ParseException arg1) {
 				// TODO Auto-generated method stub
 				if (arg1 == null) {
-
+					Usuario loggedUser = new Usuario();
+					loggedUser.setNombre(arg0.getString("name"));
+					loggedUser.setEmail(arg0.getEmail());
+					loggedUser.setUsername(arg0.getUsername());
+					loggedUser.setUserType(arg0.getInt("userType"));
+					if (loggedUser.getUserType() == 1) {
+						loggedUser.setDiscapacity(arg0.getString("discapacity"));
+					}
+					FacadeController.getInstance().setLoggedUser(loggedUser);
+					changeActivity(NewsActivity.class);
 				}
 				dissmissProgressDialog();
 			}
