@@ -9,5 +9,6 @@
     <string name="alert_label">Alerta</string>
     <string name="sing_up_success_label">Alerta</string>
     <string name="sing_up_wrong_label">Hubo un error en su registro cod: </string>
+     <string name="login_process_ongoing">Iniciando Sesion Espere Por Favor</string>
 
 </resources>

@@ -2,6 +2,7 @@ package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 
+import com.parse.LogInCallback;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -47,6 +48,21 @@ public class LoginController extends AbstractController {
 		super.changeActivity(destinyClass);
 	}
 
+	public void longIn(String username, String password) {
+		ParseUser.logInInBackground(username, password, new LogInCallback() {
+
+			@Override
+			public void done(ParseUser arg0, com.parse.ParseException arg1) {
+				// TODO Auto-generated method stub
+				if(arg1==null){
+					
+				}
+				dissmissProgressDialog();
+			}
+
+		});
+	}
+
 	public void SingUp(String username, String password, String name,
 			String sport, String discapacity, String email) {
 		ParseUser user = new ParseUser();
@@ -63,6 +79,11 @@ public class LoginController extends AbstractController {
 			public void done(com.parse.ParseException arg0) {
 				// TODO Auto-generated method stub
 				if (arg0 == null) {
+					// showProgressDialog(
+					// getActivity().getResources().getString(
+					// R.string.alert_label),
+					// getActivity().getResources().getString(
+					// R.string.login_process_ongoing));
 					showAlertMessage(
 							getActivity().getResources().getString(
 									R.string.alert_label),
@@ -75,6 +96,7 @@ public class LoginController extends AbstractController {
 							getActivity().getResources().getString(
 									R.string.sing_up_wrong_label));
 				}
+				dissmissProgressDialog();
 
 			}
 		});
