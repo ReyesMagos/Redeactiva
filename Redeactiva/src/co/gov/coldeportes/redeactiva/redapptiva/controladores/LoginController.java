@@ -1,5 +1,6 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import co.gov.coldeportes.redeactiva.redapptiva.NewsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 
 import com.parse.LogInCallback;
@@ -55,7 +56,7 @@ public class LoginController extends AbstractController {
 			public void done(ParseUser arg0, com.parse.ParseException arg1) {
 				// TODO Auto-generated method stub
 				if (arg1 == null) {
-
+					changeActivity(NewsActivity.class);
 				}
 				dissmissProgressDialog();
 			}

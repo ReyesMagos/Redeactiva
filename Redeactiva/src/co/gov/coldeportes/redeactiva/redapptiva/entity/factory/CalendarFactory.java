@@ -37,7 +37,7 @@ public class CalendarFactory implements ICalendarFactory {
 		try {
 			for (int i = 0; i < arreglo.length(); i++) {
 				object = arreglo.getJSONObject(i);
-				
+
 				Calendar c = new Calendar();
 				c.setPartitionKey(object.getString("PartitionKey"));
 				c.setRowKey(object.getString("RowKey"));
@@ -49,7 +49,7 @@ public class CalendarFactory implements ICalendarFactory {
 				c.setTerritorio(object.getString("territorio"));
 				c.setEntidad(object.getString("entidad"));
 				c.setClaseDeEvento(object.getString("clasedeevento"));
-				c.setNivel(object.getString("Academico"));
+
 				c.setNivel(object.getString("nivel"));
 				c.setDescripcionDelEvento(object
 						.getString("descripciondelevento"));
