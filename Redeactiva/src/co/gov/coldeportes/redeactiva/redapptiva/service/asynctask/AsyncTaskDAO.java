@@ -11,6 +11,7 @@ import org.json.JSONObject;
 
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.AbstractDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
 import android.os.AsyncTask;
 
 public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
@@ -53,6 +54,9 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 		if (abstractDAO instanceof CalendarDAO) {
 			CalendarDAO calendarDAO = (CalendarDAO) abstractDAO;
 			calendarDAO.fillCalendar(restFulResponseArray);
+		}else if(abstractDAO instanceof ProjectDAO){
+			ProjectDAO projectDAO = (ProjectDAO) abstractDAO;
+			projectDAO.fillProjects(restFulResponseArray);
 		}
 	}
 
