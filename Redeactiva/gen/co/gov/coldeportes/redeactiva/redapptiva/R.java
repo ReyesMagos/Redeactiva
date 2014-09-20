@@ -1091,7 +1091,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f05004a;
+        public static final int action_settings=0x7f05004c;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1114,6 +1114,7 @@ containing a value of this type.
         public static final int image=0x7f050027;
         public static final int imageview_login=0x7f050040;
         public static final int imageview_register=0x7f050041;
+        public static final int lbldiscapacity=0x7f05004a;
         public static final int lblemail=0x7f050046;
         public static final int lblname=0x7f050048;
         public static final int lblpassword=0x7f050044;
@@ -1141,6 +1142,7 @@ containing a value of this type.
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
         public static final int showTitle=0x7f050006;
+        public static final int spdiscapacity=0x7f05004b;
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
@@ -1257,14 +1259,18 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000f;
         public static final int alert_label=0x7f0a0015;
         public static final int app_name=0x7f0a000d;
+        public static final int cancel_button_label=0x7f0a0017;
         public static final int discapacity_label=0x7f0a0013;
         public static final int email_label=0x7f0a0011;
         public static final int hello_world=0x7f0a000e;
-        public static final int login_process_ongoing=0x7f0a0018;
+        public static final int log_in_process_label=0x7f0a001c;
+        public static final int login_process_ongoing=0x7f0a0019;
         public static final int name_label=0x7f0a0012;
         public static final int password_label=0x7f0a0014;
+        public static final int sing_up_button_label=0x7f0a001a;
+        public static final int sing_up_process_label=0x7f0a001b;
         public static final int sing_up_success_label=0x7f0a0016;
-        public static final int sing_up_wrong_label=0x7f0a0017;
+        public static final int sing_up_wrong_label=0x7f0a0018;
         public static final int username_label=0x7f0a0010;
     }
     public static final class style {
