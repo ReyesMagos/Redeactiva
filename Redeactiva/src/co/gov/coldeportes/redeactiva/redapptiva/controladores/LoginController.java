@@ -1,5 +1,6 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.NewsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
@@ -62,11 +63,14 @@ public class LoginController extends AbstractController {
 					loggedUser.setEmail(arg0.getEmail());
 					loggedUser.setUsername(arg0.getUsername());
 					loggedUser.setUserType(arg0.getInt("userType"));
+					loggedUser.setDepartamento(arg0.getString("departamento"));
+					loggedUser.setMunicipio(arg0.getString("municipio"));
 					if (loggedUser.getUserType() == 1) {
 						loggedUser.setDiscapacity(arg0.getString("discapacity"));
 					}
+					Log.i("User", "REgistrado");
 					FacadeController.getInstance().setLoggedUser(loggedUser);
-					changeActivity(NewsActivity.class);
+					changeActivity(CreateEventActivity.class);
 				}
 				dissmissProgressDialog();
 			}
@@ -81,6 +85,8 @@ public class LoginController extends AbstractController {
 		user.setPassword(password);
 		user.setEmail(email);
 		user.put("name", name);
+		user.put("departamento", "Antioquia");
+		user.put("municipio", "Medellin");
 		if (discapacity != null) {
 			user.put("discapacity", discapacity);
 			user.put("userType", 1);
