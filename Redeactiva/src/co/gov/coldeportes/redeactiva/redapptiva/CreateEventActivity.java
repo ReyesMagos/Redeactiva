@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 
@@ -16,6 +17,7 @@ public class CreateEventActivity extends Activity {
 	private EditText txtNumMinParticipantes;
 	private EditText txtLugar;
 	private DatePicker fechaPicker;
+	private TimePicker horaPicker;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class CreateEventActivity extends Activity {
 		txtNumMaxParticipantes = (EditText) findViewById(R.id.txtmaxnumparticipantntes);
 		txtNumMinParticipantes = (EditText) findViewById(R.id.txtminnumparticipantes);
 		txtLugar = (EditText) findViewById(R.id.txtLugar);
+		horaPicker = (TimePicker) findViewById(R.id.horapicker);
 	}
 
 	public void btnCreateEvent_Click(View v) {
@@ -52,8 +55,10 @@ public class CreateEventActivity extends Activity {
 				.getDepartamento();
 		String municipio = FacadeController.getInstance().getLoggedUser()
 				.getMunicipio();
+		String hora = horaPicker.getCurrentHour() + ":"
+				+ horaPicker.getCurrentMinute();
 		FacadeController.getInstance().createEvent(fecha, numMax, numMin,
-				lugar, departamento, municipio);
+				lugar, departamento, municipio, hora);
 
 	}
 

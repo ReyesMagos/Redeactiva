@@ -34,9 +34,9 @@ public class FacadeController {
 	}
 
 	public void createEvent(String fecha, String numMax, String numMin,
-			String lugar, String departamento, String municipio) {
+			String lugar, String departamento, String municipio, String hora) {
 		createEventController.createEvent(fecha, numMax, numMin, lugar,
-				departamento, municipio, "Baloncesto");
+				departamento, municipio, hora, "Baloncesto");
 
 	}
 

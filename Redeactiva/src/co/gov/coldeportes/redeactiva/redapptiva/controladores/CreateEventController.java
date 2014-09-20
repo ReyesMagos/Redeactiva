@@ -13,7 +13,8 @@ public class CreateEventController extends AbstractController {
 	}
 
 	public void createEvent(String fecha, String numMax, String numMin,
-			String lugar, String departamento, String municipio, String deporte) {
+			String lugar, String departamento, String municipio, String hora,
+			String deporte) {
 		super.showProgressDialog(
 				getActivity().getResources().getString(R.string.alert_label),
 				"Creando Evento Espere Por Favor");
@@ -25,6 +26,7 @@ public class CreateEventController extends AbstractController {
 		e.setDireccion(lugar);
 		e.setMunicipio(municipio);
 		e.setDepartamento(departamento);
+		e.setHoraEncuentro(hora);
 		e.setCreador(FacadeController.getInstance().getLoggedUser());
 		EventoDAO eventoDAO = new EventoDAO();
 		eventoDAO.createEvento(e);

@@ -23,6 +23,7 @@ public class EventoDAO extends AbstractDAO {
 		evento.put("departamento", e.getDepartamento());
 		evento.put("municipio", e.getMunicipio());
 		evento.put("creador", e.getCreador().getUseR());
+		evento.put("horaEncuentro", e.getHoraEncuentro());
 		evento.saveInBackground(new SaveCallback() {
 
 			@Override
