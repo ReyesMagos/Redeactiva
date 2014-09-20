@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="380dp"
             android:layout_weight="1"
+            android:contentDescription="Campo para Ingresar su Nombre de Usuario"
             android:ems="10"
             android:text="" >
 
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
+            android:contentDescription="Campo para Ingresar su Contraseña"
             android:ems="10"
             android:text="" >
         </EditText>
@@ -64,6 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
+            android:contentDescription="Boton para Logearse en la Aplicacion"
             android:onClick="btnLogin_Click"
             android:src="@drawable/ic_launcher" />
 
@@ -73,7 +76,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:onClick="SingUp2"
+            android:contentDescription="Boton para registrarse en la Aplicacicon"
+            android:onClick="btnSingUp_Click"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
 

@@ -70,8 +70,12 @@ public class LoginController extends AbstractController {
 		user.setPassword(password);
 		user.setEmail(email);
 		user.put("name", name);
-
-		user.put("discapacity", discapacity);
+		if (discapacity != null) {
+			user.put("discapacity", discapacity);
+			user.put("userType", 1);
+		} else {
+			user.put("userType", 2);
+		}
 
 		user.signUpInBackground(new SignUpCallback() {
 
@@ -94,7 +98,8 @@ public class LoginController extends AbstractController {
 							getActivity().getResources().getString(
 									R.string.alert_label),
 							getActivity().getResources().getString(
-									R.string.sing_up_wrong_label));
+									R.string.sing_up_wrong_label)
+									+ arg0.getMessage().toString());
 				}
 				dissmissProgressDialog();
 
