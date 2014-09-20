@@ -54,8 +54,8 @@ public class LoginController extends AbstractController {
 			@Override
 			public void done(ParseUser arg0, com.parse.ParseException arg1) {
 				// TODO Auto-generated method stub
-				if(arg1==null){
-					
+				if (arg1 == null) {
+
 				}
 				dissmissProgressDialog();
 			}
@@ -64,13 +64,13 @@ public class LoginController extends AbstractController {
 	}
 
 	public void SingUp(String username, String password, String name,
-			String sport, String discapacity, String email) {
+			String discapacity, String email) {
 		ParseUser user = new ParseUser();
 		user.setUsername(username);
 		user.setPassword(password);
 		user.setEmail(email);
 		user.put("name", name);
-		user.put("sport", sport);
+
 		user.put("discapacity", discapacity);
 
 		user.signUpInBackground(new SignUpCallback() {
