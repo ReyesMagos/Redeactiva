@@ -18,6 +18,12 @@ public class CalendarFactory  implements ICalendarFactory  {
 		return instance;
 	}
 
+	@Override
+	public void fillCalendar(JSONArray arreglo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 	
