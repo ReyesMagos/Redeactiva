@@ -1,6 +1,7 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
-import co.gov.coldeportes.redeactiva.redapptiva.MainActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
 import android.app.Activity;
 
 public class FacadeController {
@@ -26,6 +27,20 @@ public class FacadeController {
 
 	public void login(String username, String password) {
 		loginController.longIn(username, password);
+		loginController.showProgressDialog(
+				loginController.getActivity().getResources()
+						.getString(R.string.alert_label),
+				loginController.getActivity().getResources()
+						.getString(R.string.log_in_process_label));
 	}
 
+	public void singUp(String username, String password, String email,
+			String name, String discapacity) {
+		loginController.showProgressDialog(
+				loginController.getActivity().getResources()
+						.getString(R.string.alert_label),
+				loginController.getActivity().getResources()
+						.getString(R.string.sing_up_process_label));
+		loginController.SingUp(username, password, name, discapacity, email);
+	}
 }
