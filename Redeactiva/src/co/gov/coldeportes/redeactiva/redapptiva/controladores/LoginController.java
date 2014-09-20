@@ -1,5 +1,6 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.NewsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
@@ -65,8 +66,9 @@ public class LoginController extends AbstractController {
 					if (loggedUser.getUserType() == 1) {
 						loggedUser.setDiscapacity(arg0.getString("discapacity"));
 					}
+					Log.i("User", "REgistrado");
 					FacadeController.getInstance().setLoggedUser(loggedUser);
-					changeActivity(NewsActivity.class);
+					changeActivity(CreateEventActivity.class);
 				}
 				dissmissProgressDialog();
 			}

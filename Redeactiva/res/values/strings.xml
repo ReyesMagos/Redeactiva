@@ -18,5 +18,12 @@
     <string name="sing_up_process_label">Registrando Por Favor Espere</string>
     <string name="log_in_process_label">Logeando Por Favor Espere</string>
     <string name="title_activity_news">NewsActivity</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="title_activity_create_event">CreateEventActivity</string>
+    <string name="sport_label">Deporte</string>
+    <string name="fecha_label">Fecha</string>
+    <string name="max_num_participantes_label">Max Numero de Participantes</string>
+    <string name="mim_num_participantes_label">Min Numero de Participantes</string>
+     <string name="lugar_label">lugar</string>
 
 </resources>
