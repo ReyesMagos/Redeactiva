@@ -38,4 +38,6 @@ Icon
 *.dex
 *.cache
 *.ap_
+*.classpath
 Redeactiva\bin\
+
