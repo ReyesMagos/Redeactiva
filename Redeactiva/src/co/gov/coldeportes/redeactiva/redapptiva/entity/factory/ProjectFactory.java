@@ -1,7 +1,6 @@
 package co.gov.coldeportes.redeactiva.redapptiva.entity.factory;
 
 public class ProjectFactory {
-<<<<<<< HEAD
 	
 	public static ProjectFactory projectInstance;
 	
@@ -16,9 +15,5 @@ public class ProjectFactory {
 		
 		return projectInstance;
 	}
-	
-	
-=======
->>>>>>> origin/master
 
 }
