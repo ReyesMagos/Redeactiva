@@ -1,13 +1,21 @@
 package co.gov.coldeportes.redeactiva.redapptiva;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
+
 import com.parse.Parse;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
+
+	private EditText editTextUsername;
+	private EditText editTextPassword;
+	private FacadeController facadeController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +24,29 @@ public class MainActivity extends ActionBarActivity {
 
 		Parse.initialize(this, "yEffMfmOm0QYmydHzPdFiYWgXWkRm2lYao0ueSkJ",
 				"ln1rfhkJO3Twdbh8fmmG08xYZlpH63MLJPF6PSTo");
+		init();
+
+		facadeController.registerToController(this);
+
+	}
+
+	public void init() {
+
+		facadeController = FacadeController.getInstance();
+		editTextUsername = (EditText) findViewById(R.id.edittext_username1);
+
+		editTextPassword = (EditText) findViewById(R.id.edittext_password1);
+	}
+
+	public void btnLogin_Click(View v) {
+		String username = editTextUsername.getText().toString();
+		String password = editTextPassword.getText().toString();
+
+		facadeController.login(username, password);
+	}
+
+	public void btnSingUp_Click(View v) {
+
 	}
 
 	@Override
