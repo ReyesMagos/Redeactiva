@@ -17,5 +17,10 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 		
 		return null;
 	}
+	
+	@Override
+	protected void onPostExecute(Boolean result) {
+		super.onPostExecute(result);
+	}
 
 }
