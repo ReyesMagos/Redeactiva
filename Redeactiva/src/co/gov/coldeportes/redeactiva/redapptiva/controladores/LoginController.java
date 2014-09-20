@@ -66,6 +66,9 @@ public class LoginController extends AbstractController {
 					if (loggedUser.getUserType() == 1) {
 						loggedUser.setDiscapacity(arg0.getString("discapacity"));
 					}
+					loggedUser.setDepartamento(arg0.getString("Departamento"));
+					loggedUser.setMunicipio(arg0.getString("municipio"));
+					loggedUser.setUseR(arg0);
 					Log.i("User", "REgistrado");
 					FacadeController.getInstance().setLoggedUser(loggedUser);
 					changeActivity(CreateEventActivity.class);

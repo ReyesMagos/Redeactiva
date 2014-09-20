@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 
 public class CreateEventActivity extends Activity {
 
@@ -19,6 +21,8 @@ public class CreateEventActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_event);
+		FacadeController.getInstance().registerToController(this);
+		init();
 	}
 
 	@Override
@@ -35,6 +39,22 @@ public class CreateEventActivity extends Activity {
 		txtNumMaxParticipantes = (EditText) findViewById(R.id.txtmaxnumparticipantntes);
 		txtNumMinParticipantes = (EditText) findViewById(R.id.txtminnumparticipantes);
 		txtLugar = (EditText) findViewById(R.id.txtLugar);
+	}
+
+	public void btnCreateEvent_Click(View v) {
+		String fecha = fechaPicker.getDayOfMonth() + "/"
+				+ Integer.toString(fechaPicker.getMonth() + 1) + "/"
+				+ fechaPicker.getYear();
+		String numMax = txtNumMaxParticipantes.getText().toString();
+		String numMin = txtNumMinParticipantes.getText().toString();
+		String lugar = txtLugar.getText().toString();
+		String departamento = FacadeController.getInstance().getLoggedUser()
+				.getDepartamento();
+		String municipio = FacadeController.getInstance().getLoggedUser()
+				.getMunicipio();
+		FacadeController.getInstance().createEvent(fecha, numMax, numMin,
+				lugar, departamento, municipio);
+
 	}
 
 	@Override

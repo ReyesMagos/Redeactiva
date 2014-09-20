@@ -133,6 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="btnCreateEvent_Click"
             android:contentDescription="boton para crear el evento"
             android:src="@drawable/ic_launcher" />
 
