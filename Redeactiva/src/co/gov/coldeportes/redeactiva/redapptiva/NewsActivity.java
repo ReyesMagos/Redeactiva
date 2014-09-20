@@ -1,7 +1,9 @@
 package co.gov.coldeportes.redeactiva.redapptiva;
 
+import co.gov.coldeportes.redeactiva.redapptiva.activities.ProjectSearchActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +31,7 @@ public class NewsActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			startActivity(new Intent(this, ProjectSearchActivity.class));
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

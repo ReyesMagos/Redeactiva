@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
 
 public class CreateEventActivity extends Activity {
 
@@ -19,6 +20,9 @@ public class CreateEventActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_event);
+		
+		ProjectDAO projectDAO = new ProjectDAO();
+		projectDAO.executeAsyncTaskDAO();
 	}
 
 	@Override
