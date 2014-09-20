@@ -43,3 +43,5 @@ Redeactiva\bin\*
 
 Redeactiva/.classpath
 Redeactiva/.classpath
+Redeactiva\gen\*
+Redeactiva/gen/android/support/v7/appcompat/R.java
