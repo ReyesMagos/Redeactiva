@@ -27,5 +27,7 @@
      <string name="lugar_label">lugar</string>
      <string name="description_list_projects">Lista con el portafolio de proyectos para su ubicación</string>
      <string name="project_search_title">Portafolio de proyectos</string>
+     <string name="hora_label">Hora</string>
+     
 
 </resources>

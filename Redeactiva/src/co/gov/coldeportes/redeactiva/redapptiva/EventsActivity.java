@@ -5,8 +5,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class EventsActivity extends ActionBarActivity {
+
+	private ListView listCalendarEvents;
+	private ListView listUserEvents;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +18,30 @@ public class EventsActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_events);
 		CalendarDAO calendarDAO = new CalendarDAO();
 		calendarDAO.executeAsyncTaskDAO();
+		init();
+	}
+
+	public void  init() {
+		listCalendarEvents = (ListView) findViewById(R.id.listCalendarEvents);
+		listUserEvents = (ListView) findViewById(R.id.listUserEvents);
+	}
+	
+	
+
+	public ListView getListCalendarEvents() {
+		return listCalendarEvents;
+	}
+
+	public void setListCalendarEvents(ListView listCalendarEvents) {
+		this.listCalendarEvents = listCalendarEvents;
+	}
+
+	public ListView getListUserEvents() {
+		return listUserEvents;
+	}
+
+	public void setListUserEvents(ListView listUserEvents) {
+		this.listUserEvents = listUserEvents;
 	}
 
 	@Override

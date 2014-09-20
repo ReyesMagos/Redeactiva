@@ -29,6 +29,18 @@
             android:name=".NewsActivity"
             android:label="@string/title_activity_news" >
         </activity>
+        <activity
+            android:name=".EventsActivity"
+            android:label="@string/title_activity_events" >
+        </activity>
+        <activity
+            android:name=".CreateEventActivity"
+            android:label="@string/title_activity_create_event" >
+        </activity>
+        <activity
+            android:name=".activities.ProjectSearchActivity"
+            android:label="@string/project_search_title" >
+        </activity>
     </application>
 
 </manifest>
