@@ -42,4 +42,12 @@ Icon
 Redeactiva/bin/
 
 Redeactiva/.classpath
+Redeactiva\gen\*
+Redeactiva/gen/android/support/v7/appcompat/R.java
+Redeactiva/bin/dexedLibs/android-support-v4-9f6a4e7ef1f034753525320b9f8d8188.jar
+Redeactiva/bin/dexedLibs/android-support-v7-appcompat-9941b5ddbd21b84f2391b525b46bed55.jar
+Redeactiva/bin/dexedLibs/appcompat_v7-75eb775a1c0d7ecbec5d27fb852b618b.jar
+Redeactiva/bin/dexedLibs/Parse-1.6.0-600dc8ead46a13d0ad008df4cc95d97d.jar
+Redeactiva/bin/dexedLibs/Parse-1.6.0-a80d5aecc303464ed3463668b27656aa.jar
+Redeactiva/bin/R.txt
 
