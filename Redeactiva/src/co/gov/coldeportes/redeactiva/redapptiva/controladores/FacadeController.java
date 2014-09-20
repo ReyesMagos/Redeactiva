@@ -1,5 +1,6 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
@@ -9,7 +10,9 @@ public class FacadeController {
 
 	private static FacadeController instance;
 	private LoginController loginController;
+	private CreateEventController createEventController;
 	private Usuario loggedUser;
+	private String sportSelected;
 
 	private FacadeController() {
 
@@ -25,6 +28,24 @@ public class FacadeController {
 		if (activity instanceof MainActivity) {
 			loginController = new LoginController(activity);
 		}
+		if (activity instanceof CreateEventActivity) {
+			createEventController = new CreateEventController(activity);
+		}
+	}
+
+	public void createEvent(String fecha, String numMax, String numMin,
+			String lugar, String departamento, String municipio, String hora) {
+		createEventController.createEvent(fecha, numMax, numMin, lugar,
+				departamento, municipio, hora, "Baloncesto");
+
+	}
+
+	public void dissmissProgressDialogCreateEvent() {
+		createEventController.dissmissProgressDialog();
+	}
+
+	public void showEventCreateMessage(String s) {
+		createEventController.showAlertMessage("Alerta", s);
 	}
 
 	public void login(String username, String password) {
@@ -53,6 +74,5 @@ public class FacadeController {
 	public void setLoggedUser(Usuario loggedUser) {
 		this.loggedUser = loggedUser;
 	}
-	
-	
+
 }

@@ -62,6 +62,7 @@ public class ProjectFactory {
 				this.projectsList.add(projects);
 			}
 			
+			
 		} catch (JSONException e) {
 			// TODO: handle exception
 		}

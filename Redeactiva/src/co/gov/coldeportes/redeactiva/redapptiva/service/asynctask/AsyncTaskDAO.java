@@ -57,6 +57,7 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 		}else if(abstractDAO instanceof ProjectDAO){
 			ProjectDAO projectDAO = (ProjectDAO) abstractDAO;
 			projectDAO.fillProjects(restFulResponseArray);
+			
 		}
 	}
 
