@@ -6,8 +6,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
+
+	private EditText editTextUsername;
+	private EditText editTextPassword;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +20,12 @@ public class MainActivity extends ActionBarActivity {
 
 		Parse.initialize(this, "yEffMfmOm0QYmydHzPdFiYWgXWkRm2lYao0ueSkJ",
 				"ln1rfhkJO3Twdbh8fmmG08xYZlpH63MLJPF6PSTo");
+	}
+
+	public void init() {
+		editTextUsername = (EditText) findViewById(R.id.edittext_username1);
+
+		editTextPassword = (EditText) findViewById(R.id.edittext_password1);
 	}
 
 	@Override
