@@ -83,6 +83,8 @@ public class LoginController extends AbstractController {
 		user.setPassword(password);
 		user.setEmail(email);
 		user.put("name", name);
+		user.put("departamento", "Antioquia");
+		user.put("municipio", "Medellin");
 		if (discapacity != null) {
 			user.put("discapacity", discapacity);
 			user.put("userType", 1);
