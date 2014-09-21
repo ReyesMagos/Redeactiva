@@ -80,6 +80,10 @@
             android:name=".ComentarioActivity"
             android:label="@string/title_activity_comentario" >
         </activity>
+        <activity
+            android:name=".activities.MySportsActivity"
+            android:label="Mis Deportes" >
+        </activity>
     </application>
 
 </manifest>

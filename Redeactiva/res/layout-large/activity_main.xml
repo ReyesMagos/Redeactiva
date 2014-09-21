@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:contentDescription="Boton para Logearse en la Aplicacion"
             android:onClick="btnLogin_Click"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/boton_inicio_sesion" />
 
         <ImageView
             android:id="@+id/imageview_register"
@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:contentDescription="Boton para registrarse en la Aplicacicon"
             android:onClick="btnSingUp_Click"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/boton_registro" />
     </LinearLayout>
 
 </LinearLayout>

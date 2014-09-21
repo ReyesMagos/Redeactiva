@@ -1,6 +1,10 @@
 package co.gov.coldeportes.redeactiva.redapptiva;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,11 +26,15 @@ public class CreateEventActivity extends Activity {
 	private TimePicker hourPicker;
 	private TextView txtSport;
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_event);
 		init();
+		ActionBar action = getActionBar();
+		action.setTitle("Crear Evento");
 		FacadeController.getInstance().registerToController(this);
 
 	}

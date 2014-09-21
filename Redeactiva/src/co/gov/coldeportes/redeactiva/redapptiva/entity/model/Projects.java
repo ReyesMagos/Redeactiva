@@ -19,10 +19,16 @@ public class Projects {
 	public Projects() {
 
 	}
-	
-//	public Projects(String partitionKey; String rowKey; String codigoMuni; String codigoDep;){
-//		
-//	}
+
+	public Projects(String codigoMuni, String codigoDep, String nombreProgram,
+			String pagWeb, String tipo) {
+		this.setCodigoDepartamento(codigoDep);
+		this.setCodigoMunicipio(codigoMuni);
+		this.setNombrePrograma(nombreProgram);
+		this.setPaginaWeb(pagWeb);
+		this.setTipo(tipo);
+
+	}
 
 	public String getPartitionKey() {
 		return partitionKey;

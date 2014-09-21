@@ -3,11 +3,14 @@ package co.gov.coldeportes.redeactiva.redapptiva;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.gov.coldeportes.redeactiva.redapptiva.activities.ProjectSearchActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.OpcionesGrid;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores.CustomAdapterGridPrincipal;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -19,15 +22,19 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+@SuppressLint("NewApi")
 public class PrincipalGridActivity extends ActionBarActivity {
 
 	private GridView gridPrincipal;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_principal_grid);
 		gridPrincipal = (GridView) findViewById(R.id.gridPrincipal);
+		android.app.ActionBar action = getActionBar();
+		action.setTitle("Pantalla de Opciones Principales");
 
 		// 0
 		List<OpcionesGrid> lista = new ArrayList<OpcionesGrid>();
@@ -111,10 +118,9 @@ public class PrincipalGridActivity extends ActionBarActivity {
 				case 3:
 					FacadeController.getInstance().setActivitySelectedFromGrid(
 							"Portafolio");
-					Intent i5 = new Intent(getApplicationContext(),
-							ComentarioActivity.class);
+				
 					FacadeController.getInstance().setNotice("china");
-					startActivity(i5);
+					startActivity(new Intent(getApplicationContext(), ProjectSearchActivity.class));
 					break;
 				case 4:
 					FacadeController.getInstance().setActivitySelectedFromGrid(

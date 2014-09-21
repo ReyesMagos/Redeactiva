@@ -3,6 +3,7 @@ package co.gov.coldeportes.redeactiva.redapptiva;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.gov.coldeportes.redeactiva.redapptiva.activities.MySportsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.OpcionesGrid;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores.CustomAdapterGridPrincipal;
@@ -118,7 +119,9 @@ public class GridSportActivity extends ActionBarActivity {
 					startActivity(i);
 
 				} else {
-
+					i = new Intent(getApplicationContext(),
+							MySportsActivity.class);
+					startActivity(i);
 				}
 
 			}

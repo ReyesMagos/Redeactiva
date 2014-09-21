@@ -16,6 +16,9 @@ public class ProjectFactory {
 
 	private List<Projects> projectsList;
 	private ProjectsController projectsController;
+	public static int filterOption = 0;
+
+	private List<Projects> proListAux;
 
 	private ProjectFactory() {
 	}
@@ -61,15 +64,72 @@ public class ProjectFactory {
 				projects.setPaginaWeb(jsonObject.getString("paginaweb"));
 				this.projectsList.add(projects);
 			}
-			
-			
+			showProjects(filterOption);
+
 		} catch (JSONException e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public List<Projects> getProjectsList() {
 		return projectsList;
+	}
+
+	public void showProjects(int option) {
+		proListAux = new ArrayList<Projects>();
+		Projects projectAux;
+
+		for (int i = 0; i < projectsList.size(); i++) {
+			if (option == 0
+					&& projectsList.get(i).getTipo()
+							.equals("Deporte Social Comunitario")) {
+				projectAux = new Projects(projectsList.get(i)
+						.getCodigoMunicipio(), projectsList.get(i)
+						.getCodigoDepartamento(), projectsList.get(i)
+						.getNombrePrograma(), projectsList.get(i)
+						.getPaginaWeb(), projectsList.get(i).getTipo());
+				proListAux.add(projectAux);
+			} else if (projectsList.get(i).getTipo().equals("Recreaci�n")) {
+				projectAux = new Projects(projectsList.get(i)
+						.getCodigoMunicipio(), projectsList.get(i)
+						.getCodigoDepartamento(), projectsList.get(i)
+						.getNombrePrograma(), projectsList.get(i)
+						.getPaginaWeb(), projectsList.get(i).getTipo());
+				proListAux.add(projectAux);
+			}
+
+		}
+	}
+	
+	public List<Projects> filterProjects(int option){
+		proListAux = new ArrayList<Projects>();
+		Projects projectAux;
+
+		for (int i = 0; i < projectsList.size(); i++) {
+			if (option == 0
+					&& projectsList.get(i).getTipo()
+							.equals("Deporte Social Comunitario")) {
+				projectAux = new Projects(projectsList.get(i)
+						.getCodigoMunicipio(), projectsList.get(i)
+						.getCodigoDepartamento(), projectsList.get(i)
+						.getNombrePrograma(), projectsList.get(i)
+						.getPaginaWeb(), projectsList.get(i).getTipo());
+				proListAux.add(projectAux);
+			} else if (projectsList.get(i).getTipo().equals("Recreacion")) {
+				projectAux = new Projects(projectsList.get(i)
+						.getCodigoMunicipio(), projectsList.get(i)
+						.getCodigoDepartamento(), projectsList.get(i)
+						.getNombrePrograma(), projectsList.get(i)
+						.getPaginaWeb(), projectsList.get(i).getTipo());
+				proListAux.add(projectAux);
+			}
+
+		}
+		return proListAux;
+	}
+
+	public List<Projects> getProListAux() {
+		return proListAux;
 	}
 
 }

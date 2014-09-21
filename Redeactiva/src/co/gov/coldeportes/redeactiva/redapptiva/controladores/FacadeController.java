@@ -2,17 +2,21 @@ package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
 import java.util.List;
 
+import android.app.Activity;
 import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.EventsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.MultimediaActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.activities.MySportsActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.activities.ProjectSearchActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.MultimediaDAO;
-import android.app.Activity;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.MySportDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
 
 public class FacadeController {
 
@@ -25,6 +29,8 @@ public class FacadeController {
 	private String activitySelectedFromGrid;
 	private MultimediaController multimediaController;
 	private String notice;
+	private ProjectsController projectsController;
+	private MySportController mySportController;
 
 	private FacadeController() {
 
@@ -139,6 +145,20 @@ public class FacadeController {
 							"Obteniendo Informacion Multimedia de Deportes , espero por favor");
 
 		}
+		if (activity instanceof ProjectSearchActivity) {
+			projectsController = new ProjectsController(activity);
+			ProjectDAO projectDAO = new ProjectDAO();
+			projectDAO.executeAsyncTaskDAO();
+			projectsController.showProgressDialog("Alerta",
+					"Consultando Portafolio de Proyectos, espere por favor");
+		}
+		if (activity instanceof MySportsActivity) {
+			mySportController = new MySportController(activity);
+			MySportDAO mySportDAO = new MySportDAO();
+			mySportDAO.executeAsyncTaskDAO();
+			mySportController.showProgressDialog("Alerta",
+					"Consultando sus deportes, espere por favor");
+		}
 	}
 
 	public void dissmissDialogMultimedia() {
@@ -148,6 +168,15 @@ public class FacadeController {
 	public void showMultimediaThings() {
 		multimediaController.showMultimediaThings();
 	}
+	
+	public void dissmissProgressDialogProject() {
+		projectsController.dissmissProgressDialog();
+	}
+
+	public void dissmissProgressDialogMySport() {
+		mySportController.dissmissProgressDialog();
+	}
+
 
 	public void dissmissEVentsActivityProgress() {
 		eventsController.dissmissProgressDialog();
@@ -202,5 +231,18 @@ public class FacadeController {
 	public void setLoggedUser(Usuario loggedUser) {
 		this.loggedUser = loggedUser;
 	}
+	
+	public void showProjects() {
+		projectsController.showProjectsListView();
+	}
+	
+	public void fillMySports(){
+		mySportController.fillListView();
+	}
+
+	public void showFiltersForProjects() {
+		projectsController.filtersForProject();
+	}
+	
 
 }

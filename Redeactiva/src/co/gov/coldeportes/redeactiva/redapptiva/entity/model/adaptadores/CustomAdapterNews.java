@@ -63,9 +63,18 @@ public class CustomAdapterNews extends BaseAdapter {
 		Noticia n = getItem(position);
 		holder.txtTitulo.setText(n.getTitulo());
 		holder.txtDescripcion.setText(n.getContenido());
-		holder.imagen.setImageDrawable(context.getResources().getDrawable(
-				R.drawable.n1));
-
+		if(n.getTitulo().contains("toronto")){
+			holder.imagen.setImageDrawable(context.getResources().getDrawable(
+					R.drawable.n1));
+		}else if(n.getTitulo().contains("GREENVILLE")){
+			holder.imagen.setImageDrawable(context.getResources().getDrawable(
+					R.drawable.n2));
+		}else{
+			holder.imagen.setImageDrawable(context.getResources().getDrawable(
+					R.drawable.n3));
+		}
+	
+		
 		return convertView;
 	}
 

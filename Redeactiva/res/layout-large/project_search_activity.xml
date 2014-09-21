@@ -12,8 +12,10 @@
         <ListView
             android:id="@+id/listView_projects"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-            android:contentDescription="@string/description_list_projects">
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/description_list_projects"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="20sp" >
         </ListView>
     </LinearLayout>
 
