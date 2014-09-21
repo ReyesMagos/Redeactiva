@@ -33,5 +33,6 @@
     <string name="title_activity_grid_sport">GridSportActivity</string>
     <string name="title_activity_mapa">Mapa</string>
     <string name="title_activity_comentario">ComentarioActivity</string>
+    <string name="title_activity_crear_grupo">CrearGrupoActivity</string>
 
 </resources>

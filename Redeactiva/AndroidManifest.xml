@@ -84,6 +84,10 @@
             android:name=".activities.MySportsActivity"
             android:label="Mis Deportes" >
         </activity>
+        <activity
+            android:name=".CrearGrupoActivity"
+            android:label="@string/title_activity_crear_grupo" >
+        </activity>
     </application>
 
 </manifest>

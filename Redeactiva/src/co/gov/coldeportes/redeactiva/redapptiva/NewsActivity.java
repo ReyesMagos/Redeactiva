@@ -112,18 +112,7 @@ public class NewsActivity extends ActionBarActivity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-			QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(
-					"Ola Felipe Eres Lindo", null, Contents.Type.TEXT,
-					BarcodeFormat.QR_CODE.toString(), 500);
-
-			try {
-				Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
-
-				save(bitmap);
-
-			} catch (WriterException e) {
-				e.printStackTrace();
-			}
+			
 			return true;
 		} else if (id == R.id.botonGrid) {
 			startActivity(new Intent(this, PrincipalGridActivity.class));
@@ -131,48 +120,8 @@ public class NewsActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void save(Bitmap bitmap) {
-		String file_path = Environment.getExternalStorageDirectory()
-				.getAbsolutePath() + "/QR";
-		File dir = new File(file_path);
-		if (!dir.exists())
-			dir.mkdirs();
-		Random r = new Random();
-		int x = r.nextInt();
-		File file = new File(dir, "QR" + x + ".png");
-		FileOutputStream fOut;
-		try {
-			fOut = new FileOutputStream(file);
-			bitmap.compress(Bitmap.CompressFormat.PNG, 85, fOut);
-			showAlertMessage("Exito", "Archivo Generado Con Exito. Ruta: "
-					+ file_path);
-			fOut.flush();
-			fOut.close();
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-	}
-
-	public void showAlertMessage(String title, String message) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-		builder.setTitle(title);
-
-		builder.setMessage(message).setPositiveButton("OK",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-
-					}
-				});
-
-		AlertDialog dialog = builder.show();
-		dialog.show();
-	}
+	
 
 }

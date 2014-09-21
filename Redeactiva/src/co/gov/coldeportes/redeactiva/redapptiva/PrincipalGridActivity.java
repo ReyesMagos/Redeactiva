@@ -86,6 +86,12 @@ public class PrincipalGridActivity extends ActionBarActivity {
 		lista.add(opcionesGrid);
 
 		// 6
+		opcionesGrid = new OpcionesGrid();
+		opcionesGrid.setImageSource(BitmapFactory.decodeResource(
+				getResources(), R.drawable.boton_misdeportes));
+		opcionesGrid
+				.setOptionName("Crear Grupo, Pulsando esta opcion podras crear grupos añadiendo a otros amigos, para practicar tu deporte favorito");
+		lista.add(opcionesGrid);
 		CustomAdapterGridPrincipal adapterGridPrincipal = new CustomAdapterGridPrincipal(
 				this, lista);
 		gridPrincipal.setAdapter(adapterGridPrincipal);
@@ -118,9 +124,10 @@ public class PrincipalGridActivity extends ActionBarActivity {
 				case 3:
 					FacadeController.getInstance().setActivitySelectedFromGrid(
 							"Portafolio");
-				
+
 					FacadeController.getInstance().setNotice("china");
-					startActivity(new Intent(getApplicationContext(), ProjectSearchActivity.class));
+					startActivity(new Intent(getApplicationContext(),
+							ProjectSearchActivity.class));
 					break;
 				case 4:
 					FacadeController.getInstance().setActivitySelectedFromGrid(
@@ -135,6 +142,13 @@ public class PrincipalGridActivity extends ActionBarActivity {
 					Intent i2 = new Intent(getApplicationContext(),
 							GridSportActivity.class);
 					startActivity(i2);
+					break;
+				case 6:
+					FacadeController.getInstance().setActivitySelectedFromGrid(
+							"Mis_Deportes");
+					Intent i22 = new Intent(getApplicationContext(),
+							CrearGrupoActivity.class);
+					startActivity(i22);
 					break;
 				}
 
