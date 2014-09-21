@@ -6,18 +6,24 @@ import java.util.List;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.OpcionesGrid;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores.CustomAdapterGridPrincipal;
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
+@SuppressLint("NewApi")
 public class GridSportActivity extends ActionBarActivity {
 
 	private GridView gridSpoGridView;
 	ActionBar action;
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,6 +31,8 @@ public class GridSportActivity extends ActionBarActivity {
 		gridSpoGridView = (GridView) findViewById(R.id.gridSport);
 		action = getActionBar();
 		action.setTitle("Seleccion de Deporte");
+		action.setBackgroundDrawable(getResources().getDrawable(
+				R.drawable.barra));
 		CustomAdapterGridPrincipal customAdapterGridPrincipal = new CustomAdapterGridPrincipal(
 				this, null);
 		// action.setBackgroundDrawable(d)
