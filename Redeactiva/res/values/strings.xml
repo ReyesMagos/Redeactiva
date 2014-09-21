@@ -29,5 +29,7 @@
     <string name="project_search_title">Portafolio de proyectos</string>
     <string name="hora_label">Hora</string>
     <string name="title_activity_multimedia">MultimediaActivity</string>
+    <string name="title_activity_principal_grid">PrincipalGridActivity</string>
+    <string name="title_activity_grid_sport">GridSportActivity</string>
 
 </resources>

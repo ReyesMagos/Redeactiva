@@ -45,6 +45,14 @@
             android:name=".MultimediaActivity"
             android:label="@string/title_activity_multimedia" >
         </activity>
+        <activity
+            android:name=".PrincipalGridActivity"
+            android:label="@string/title_activity_principal_grid" >
+        </activity>
+        <activity
+            android:name=".GridSportActivity"
+            android:label="@string/title_activity_grid_sport" >
+        </activity>
     </application>
 
 </manifest>

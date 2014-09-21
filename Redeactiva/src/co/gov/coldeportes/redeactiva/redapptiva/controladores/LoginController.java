@@ -4,6 +4,7 @@ import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.EventsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.MultimediaActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.NewsActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.PrincipalGridActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.ProjectSearchActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
@@ -74,7 +75,7 @@ public class LoginController extends AbstractController {
 					Log.i("User", "REgistrado");
 					FacadeController.getInstance().setLoggedUser(loggedUser);
 					//TODO:cambiar ahorita
-					changeActivity(MultimediaActivity.class);
+					changeActivity(PrincipalGridActivity.class);
 				}
 				dissmissProgressDialog();
 			}
