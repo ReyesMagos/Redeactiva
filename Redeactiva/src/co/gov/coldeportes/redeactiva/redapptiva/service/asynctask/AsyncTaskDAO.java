@@ -9,6 +9,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.AbstractDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
@@ -50,15 +51,26 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 	@Override
 	protected void onPostExecute(Boolean result) {
 		super.onPostExecute(result);
+		if (result) {
+			if (abstractDAO instanceof CalendarDAO) {
+				CalendarDAO calendarDAO = (CalendarDAO) abstractDAO;
+				calendarDAO.fillCalendar(restFulResponseArray);
+				FacadeController.getInstance().dissmissEVentsActivityProgress();
+				FacadeController.getInstance().showCalendarEvents();
 
-		if (abstractDAO instanceof CalendarDAO) {
-			CalendarDAO calendarDAO = (CalendarDAO) abstractDAO;
-			calendarDAO.fillCalendar(restFulResponseArray);
-		}else if(abstractDAO instanceof ProjectDAO){
-			ProjectDAO projectDAO = (ProjectDAO) abstractDAO;
-			projectDAO.fillProjects(restFulResponseArray);
-			
+			} else if (abstractDAO instanceof ProjectDAO) {
+				ProjectDAO projectDAO = (ProjectDAO) abstractDAO;
+				projectDAO.fillProjects(restFulResponseArray);
+
+			}
+		} else {
+			if (abstractDAO instanceof CalendarDAO) {
+
+				FacadeController.getInstance().dissmissEVentsActivityProgress();
+
+			}
 		}
+
 	}
 
 }

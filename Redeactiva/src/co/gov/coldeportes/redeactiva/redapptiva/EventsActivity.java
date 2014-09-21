@@ -1,6 +1,8 @@
 package co.gov.coldeportes.redeactiva.redapptiva;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,17 +18,18 @@ public class EventsActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_events);
-		CalendarDAO calendarDAO = new CalendarDAO();
-		calendarDAO.executeAsyncTaskDAO();
+
 		init();
+		FacadeController.getInstance().registerToController(this);
+		EventoDAO eventoDAO = new EventoDAO();
+		eventoDAO.getEvents("Baloncesto");
+
 	}
 
-	public void  init() {
+	public void init() {
 		listCalendarEvents = (ListView) findViewById(R.id.listCalendarEvents);
 		listUserEvents = (ListView) findViewById(R.id.listUserEvents);
 	}
-	
-	
 
 	public ListView getListCalendarEvents() {
 		return listCalendarEvents;

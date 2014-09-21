@@ -1,9 +1,13 @@
 package co.gov.coldeportes.redeactiva.redapptiva.service.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.util.Log;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
@@ -43,5 +47,21 @@ public class EventoDAO extends AbstractDAO {
 
 			}
 		});
+	}
+
+	public void getEvents(String sport) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Evento");
+		query.whereEqualTo("deporte", sport);
+		super.executeAsyncTaskParse(query);
+	}
+
+	public void createAndShowEvents(List list) {
+		List<Evento> listaEventos = new ArrayList<Evento>();
+		for (Object o : list) {
+			ParseObject parseObject = (ParseObject) o;
+			Evento e = new Evento();
+			e.setObjectId(parseObject.getObjectId());
+			e.setDeporte(parseObject.getString("deporte"));
+		}
 	}
 }

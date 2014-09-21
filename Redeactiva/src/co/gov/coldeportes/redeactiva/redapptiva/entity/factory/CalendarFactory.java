@@ -18,6 +18,20 @@ public class CalendarFactory implements ICalendarFactory {
 	private CalendarFactory() {
 
 	}
+	
+	
+
+	public List<Calendar> getCalendarList() {
+		return calendarList;
+	}
+
+
+
+	public void setCalendarList(List<Calendar> calendarList) {
+		this.calendarList = calendarList;
+	}
+
+
 
 	public static CalendarFactory getInstance() {
 		if (instance == null)

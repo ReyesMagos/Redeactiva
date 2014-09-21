@@ -1,15 +1,13 @@
 package co.gov.coldeportes.redeactiva.redapptiva.service.asynctask;
 
-
-
 import java.util.List;
 
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.AbstractDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
 
 import android.os.AsyncTask;
 
@@ -44,7 +42,12 @@ public class ParseAsyncTask extends AsyncTask<ParseQuery, String, Boolean> {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
 		if (result) {
-			
+			if (ownerDAO instanceof EventoDAO) {
+				EventoDAO e = (EventoDAO) ownerDAO;
+				e.createAndShowEvents(daoResults);
+
+			}
+
 		}
 	}
 
