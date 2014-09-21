@@ -4,12 +4,14 @@ import java.util.List;
 
 import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.EventsActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.MultimediaActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.MultimediaDAO;
 import android.app.Activity;
 
 public class FacadeController {
@@ -20,6 +22,7 @@ public class FacadeController {
 	private EventsController eventsController;
 	private Usuario loggedUser;
 	private String sportSelected;
+	private MultimediaController multimediaController;
 
 	private FacadeController() {
 
@@ -47,6 +50,23 @@ public class FacadeController {
 			eventsController.showProgressDialog("Alerta",
 					"Consultando Eventos Deportivos Espere Por Favor");
 		}
+		if (activity instanceof MultimediaActivity) {
+			multimediaController = new MultimediaController(activity);
+			MultimediaDAO multimediaDAO = new MultimediaDAO();
+			multimediaDAO.executeAsyncTaskDAO();
+			multimediaController
+					.showProgressDialog("Alerta",
+							"Obteniendo Informacion Multimedia de Deportes , espero por favor");
+
+		}
+	}
+
+	public void dissmissDialogMultimedia() {
+		multimediaController.dissmissProgressDialog();
+	}
+
+	public void showMultimediaThings() {
+		multimediaController.showMultimediaThings();
 	}
 
 	public void dissmissEVentsActivityProgress() {

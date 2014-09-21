@@ -102,11 +102,13 @@ public class EventsController extends AbstractController {
 						txtTipo.setText("Tipo: " + c.getTipo());
 						xtFechaInicio.setText("Fecha Inicio: "
 								+ c.getFechaInicio());
-						txtFechaFinal.setText(c.getFechaFinal());
-						txtPais.setText(c.getPais());
-						txtEntidad.setText(c.getEntidad());
-						txtClaseEvento.setText(c.getClaseDeEvento());
-						txtPaginaWeb.setText(c.getPaginaWeb());
+						txtFechaFinal.setText("Fecha Final: "
+								+ c.getFechaFinal());
+						txtPais.setText("Pais: " + c.getPais());
+						txtEntidad.setText("Entidad: " + c.getEntidad());
+						txtClaseEvento.setText("Clase Evento: "
+								+ c.getClaseDeEvento());
+						txtPaginaWeb.setText("Pagina Web: " + c.getPaginaWeb());
 						dialog.setPositiveButton("Aceptar",
 								new OnClickListener() {
 

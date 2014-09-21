@@ -21,6 +21,16 @@ public class MultimediaFactory {
 			instance = new MultimediaFactory();
 		return instance;
 	}
+	
+	
+
+	public List<Multimedia> getListaMultimedia() {
+		return listaMultimedia;
+	}
+
+	public void setListaMultimedia(List<Multimedia> listaMultimedia) {
+		this.listaMultimedia = listaMultimedia;
+	}
 
 	public void fillMultimedia(JSONArray arreglo) {
 		listaMultimedia = new ArrayList<Multimedia>();

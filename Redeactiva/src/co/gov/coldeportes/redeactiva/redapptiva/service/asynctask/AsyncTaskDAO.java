@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.AbstractDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.MultimediaDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
 import android.os.AsyncTask;
 
@@ -55,19 +56,28 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 			if (abstractDAO instanceof CalendarDAO) {
 				CalendarDAO calendarDAO = (CalendarDAO) abstractDAO;
 				calendarDAO.fillCalendar(restFulResponseArray);
-				//FacadeController.getInstance().dissmissEVentsActivityProgress();
+				// FacadeController.getInstance().dissmissEVentsActivityProgress();
 				FacadeController.getInstance().showCalendarEvents();
 
 			} else if (abstractDAO instanceof ProjectDAO) {
 				ProjectDAO projectDAO = (ProjectDAO) abstractDAO;
 				projectDAO.fillProjects(restFulResponseArray);
 
+			} else if (abstractDAO instanceof MultimediaDAO) {
+				MultimediaDAO multimediaDAO = new MultimediaDAO();
+				//
+				multimediaDAO.fillMultimediaObjects(restFulResponseArray);
+				FacadeController.getInstance().showMultimediaThings();
+				FacadeController.getInstance().dissmissDialogMultimedia();
 			}
 		} else {
 			if (abstractDAO instanceof CalendarDAO) {
 
-				//FacadeController.getInstance().dissmissEVentsActivityProgress();
+				// FacadeController.getInstance().dissmissEVentsActivityProgress();
 
+			} else if (abstractDAO instanceof MultimediaDAO) {
+
+				FacadeController.getInstance().dissmissDialogMultimedia();
 			}
 		}
 

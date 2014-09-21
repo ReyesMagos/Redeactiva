@@ -1,16 +1,34 @@
 package co.gov.coldeportes.redeactiva.redapptiva;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class MultimediaActivity extends ActionBarActivity {
+
+	private ListView listaMultimedia;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_multimedia);
+		init();
+		FacadeController.getInstance().registerToController(this);
+	}
+
+	public void init() {
+		listaMultimedia = (ListView) findViewById(R.id.listMultimedia1);
+	}
+
+	public ListView getListaMultimedia() {
+		return listaMultimedia;
+	}
+
+	public void setListaMultimedia(ListView listaMultimedia) {
+		this.listaMultimedia = listaMultimedia;
 	}
 
 	@Override
