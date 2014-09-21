@@ -11,11 +11,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
 
 public class CustomAdapterEventsUSer extends BaseAdapter {
 	Context context;
 	List<Evento> listaOpciones;
+	private int image = 0;
 
 	public CustomAdapterEventsUSer(Context context, List<Evento> opciones) {
 		this.context = context;
@@ -53,9 +55,8 @@ public class CustomAdapterEventsUSer extends BaseAdapter {
 					.findViewById(R.id.txtDeporteEvento);
 			holder.txtUbicacionEvento = (TextView) convertView
 					.findViewById(R.id.txtUbicacionEvento);
-			
-			convertView.setTag(holder);
 
+			convertView.setTag(holder);
 
 		} else {
 			holder = (viewHolder) convertView.getTag();
@@ -68,6 +69,74 @@ public class CustomAdapterEventsUSer extends BaseAdapter {
 
 		// holder.imagen.setText(s);
 		Evento e = getItem(position);
+		if (image == 0) {
+			if (FacadeController.getInstance().getSportSelected()
+					.equals("Atletismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.atletisc));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Baloncesto")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.balon));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Ciclismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.cicli));
+
+			}
+			image++;
+		} else if (image == 1) {
+			if (FacadeController.getInstance().getSportSelected()
+					.equals("Atletismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.atletics1));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Baloncesto")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.balon1));
+
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Ciclismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.cicli2));
+
+			}
+			image++;
+		} else if (image == 2) {
+
+			if (FacadeController.getInstance().getSportSelected()
+					.equals("Atletismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.atletics2));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Baloncesto")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.balon2));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Ciclismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.cicli2));
+
+			}
+
+			image++;
+		} else if (image == 3) {
+			if (FacadeController.getInstance().getSportSelected()
+					.equals("Atletismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.atletics3));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Baloncesto")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.balon3));
+			} else if (FacadeController.getInstance().getSportSelected()
+					.equals("Ciclismo")) {
+				holder.imageEvent.setImageDrawable(context.getResources()
+						.getDrawable(R.drawable.cicli));
+
+			}
+			image = 0;
+		}
 		holder.txtCreadorNAme.setText(e.getCreador().getUsername());
 		holder.txtDeporteEvento.setText(e.getDeporte());
 		holder.txtFechaEvento.setText(e.getFecha() + "Hora: "

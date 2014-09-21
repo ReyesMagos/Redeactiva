@@ -24,10 +24,73 @@ public class FacadeController {
 	private String sportSelected;
 	private String activitySelectedFromGrid;
 	private MultimediaController multimediaController;
+	private String notice;
 
 	private FacadeController() {
 
 	}
+	
+	
+
+	public LoginController getLoginController() {
+		return loginController;
+	}
+
+
+
+	public void setLoginController(LoginController loginController) {
+		this.loginController = loginController;
+	}
+
+
+
+	public CreateEventController getCreateEventController() {
+		return createEventController;
+	}
+
+
+
+	public void setCreateEventController(CreateEventController createEventController) {
+		this.createEventController = createEventController;
+	}
+
+
+
+	public EventsController getEventsController() {
+		return eventsController;
+	}
+
+
+
+	public void setEventsController(EventsController eventsController) {
+		this.eventsController = eventsController;
+	}
+
+
+
+	public MultimediaController getMultimediaController() {
+		return multimediaController;
+	}
+
+
+
+	public void setMultimediaController(MultimediaController multimediaController) {
+		this.multimediaController = multimediaController;
+	}
+
+
+
+	public String getNotice() {
+		return notice;
+	}
+
+
+
+	public void setNotice(String notice) {
+		this.notice = notice;
+	}
+
+
 
 	public String getActivitySelectedFromGrid() {
 		return activitySelectedFromGrid;

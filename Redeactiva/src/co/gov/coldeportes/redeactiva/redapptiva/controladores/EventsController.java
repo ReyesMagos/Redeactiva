@@ -3,6 +3,7 @@ package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 import java.util.List;
 
 import co.gov.coldeportes.redeactiva.redapptiva.EventsActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.Mapa;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.factory.CalendarFactory;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Calendar;
@@ -12,6 +13,7 @@ import co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores.CustomA
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -159,6 +161,7 @@ public class EventsController extends AbstractController {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								// TODO Auto-generated method stub
+								changeActivity(Mapa.class);
 
 							}
 						});

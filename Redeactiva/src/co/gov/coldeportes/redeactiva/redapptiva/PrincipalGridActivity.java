@@ -111,6 +111,10 @@ public class PrincipalGridActivity extends ActionBarActivity {
 				case 3:
 					FacadeController.getInstance().setActivitySelectedFromGrid(
 							"Portafolio");
+					Intent i5 = new Intent(getApplicationContext(),
+							ComentarioActivity.class);
+					FacadeController.getInstance().setNotice("china");
+					startActivity(i5);
 					break;
 				case 4:
 					FacadeController.getInstance().setActivitySelectedFromGrid(

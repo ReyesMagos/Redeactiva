@@ -12,7 +12,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFCCFF" >
 
         <TextView
             android:id="@+id/lblsport"
@@ -33,7 +35,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#CFFFFF" >
 
         <TextView
             android:id="@+id/lblfecha"
@@ -48,12 +52,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:spinnersShown="false"
             android:contentDescription="Elemento para seleccionar la fecha en la cual realizara su evento" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#FFFF99" >
 
         <TextView
             android:id="@+id/lblminnumparticipantes"
@@ -77,7 +84,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#FFAAFF" >
 
         <TextView
             android:id="@+id/lblmaxnumparticipantes"
@@ -101,7 +110,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#FFFFFF" >
 
         <TextView
             android:id="@+id/lblhora"
@@ -121,7 +132,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#BBBBFF" >
 
         <TextView
             android:id="@+id/lblLugar"
@@ -146,7 +159,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFBBBB" >
 
         <ImageView
             android:id="@+id/btnCrear"
@@ -155,14 +170,6 @@
             android:layout_weight="1"
             android:contentDescription="boton para crear el evento"
             android:onClick="btnCreateEvent_Click"
-            android:src="@drawable/ic_launcher" />
-
-        <ImageView
-            android:id="@+id/btnCancelar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="boton para cancelar la creacion  del evento"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
 

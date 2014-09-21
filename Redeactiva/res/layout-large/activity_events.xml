@@ -19,6 +19,7 @@
         android:id="@+id/listCalendarEvents"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="#FFBBBB"
         android:layout_weight="2"
         android:contentDescription="En esta Lista se muestran los eventos proximos a realizarsen nacional e internacionalmente, organizador por coldeportes y el comite paraolimpico"
         android:divider="@android:color/holo_green_dark"
@@ -39,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+          android:background="#CCCCFF"
         android:contentDescription="En esta lista se muestran los eventos organizados por otros usuarios que estan proximos a realizarcen y a los cuales usted se puede sumar para realizar actividad deportiva"
         android:divider="@android:color/holo_blue_light"
         android:dividerHeight="4sp" >

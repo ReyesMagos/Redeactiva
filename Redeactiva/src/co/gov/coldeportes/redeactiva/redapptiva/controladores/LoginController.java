@@ -76,7 +76,7 @@ public class LoginController extends AbstractController {
 					loggedUser.setUseR(arg0);
 					FacadeController.getInstance().setLoggedUser(loggedUser);
 					// TODO:cambiar ahorita
-					changeActivity(PrincipalGridActivity.class);
+					changeActivity(NewsActivity.class);
 				} else {
 					showAlertMessage("Alerta", "Ocurrio un Error Al ingresar: "
 							+ arg1.getMessage().toString());

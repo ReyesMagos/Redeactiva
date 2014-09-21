@@ -2,10 +2,6 @@ package co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores;
 
 import java.util.List;
 
-import co.gov.coldeportes.redeactiva.redapptiva.R;
-import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
-import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Multimedia;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,19 +10,24 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Multimedia;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Noticia;
 
-public class CustomAdapterMultimedia extends BaseAdapter {
+public class CustomAdapterNews extends BaseAdapter {
 	Context context;
-	List<Multimedia> listaOpciones;
+	List<Noticia> listaOpciones;
 
-	public CustomAdapterMultimedia(Context context, List<Multimedia> opciones) {
+	public CustomAdapterNews(Context context, List<Noticia> opciones) {
 		this.context = context;
 		this.listaOpciones = opciones;
 	}
 
 	private class viewHolder {
 
-		TextView txtNombre;
+		TextView txtTitulo;
+		TextView txtDescripcion;
+		ImageView imagen;
 
 	}
 
@@ -38,12 +39,14 @@ public class CustomAdapterMultimedia extends BaseAdapter {
 				.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		if (convertView == null) {
 
-			convertView = mInflater.inflate(R.layout.multimedia_custom_layout,
-					null);
+			convertView = mInflater.inflate(R.layout.cutom_new, null);
 
 			holder = new viewHolder();
-			holder.txtNombre = (TextView) convertView
-					.findViewById(R.id.txtNombre);
+			holder.imagen = (ImageView) convertView.findViewById(R.id.imageView1);
+			holder.txtTitulo = (TextView) convertView
+					.findViewById(R.id.txtTitulo);
+			holder.txtDescripcion = (TextView) convertView
+					.findViewById(R.id.txtContenido);
 
 			convertView.setTag(holder);
 
@@ -57,8 +60,11 @@ public class CustomAdapterMultimedia extends BaseAdapter {
 		// holder.imagenOpcioes.setImageBitmap(option.getImagenOpcion());
 
 		// holder.imagen.setText(s);
-		Multimedia m = getItem(position);
-		holder.txtNombre.setText(m.getNombre());
+		Noticia n = getItem(position);
+		holder.txtTitulo.setText(n.getTitulo());
+		holder.txtDescripcion.setText(n.getContenido());
+		holder.imagen.setImageDrawable(context.getResources().getDrawable(
+				R.drawable.n1));
 
 		return convertView;
 	}
@@ -70,7 +76,7 @@ public class CustomAdapterMultimedia extends BaseAdapter {
 	}
 
 	@Override
-	public Multimedia getItem(int arg0) {
+	public Noticia getItem(int arg0) {
 		// TODO Auto-generated method stub
 		return listaOpciones.get(arg0);
 	}

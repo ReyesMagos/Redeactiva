@@ -17,6 +17,7 @@ import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Calendar;
 public class CustomAdapterEventCalendar extends BaseAdapter {
 	Context context;
 	List<Calendar> listaOpciones;
+	private int image = 0;
 
 	public CustomAdapterEventCalendar(Context context, List<Calendar> opciones) {
 		this.context = context;
@@ -58,6 +59,43 @@ public class CustomAdapterEventCalendar extends BaseAdapter {
 
 		} else {
 			holder = (viewHolder) convertView.getTag();
+		}
+		if (image == 0) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.atletics3));
+			image++;
+		} else if (image == 1) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.arco));
+			image++;
+		} else if (image == 2) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.balon2));
+			image++;
+		} else if (image == 3) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.cicli2));
+			image++;
+		} else if (image == 4) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.meda));
+			image++;
+		} else if (image == 5) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.otra));
+			image++;
+		} else if (image == 6) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.fama));
+			image++;
+		} else if (image == 7) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.forza));
+			image++;
+		} else if (image == 8) {
+			holder.imageEvent.setImageDrawable(context.getResources()
+					.getDrawable(R.drawable.hh));
+			image = 0;
 		}
 
 		// // String s = (String) getItem(position);
