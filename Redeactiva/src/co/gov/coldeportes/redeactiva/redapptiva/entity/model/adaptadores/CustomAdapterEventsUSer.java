@@ -5,30 +5,29 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
-import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Calendar;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
 
-public class CustomAdapterEventCalendar extends BaseAdapter {
+public class CustomAdapterEventsUSer extends BaseAdapter {
 	Context context;
-	List<Calendar> listaOpciones;
+	List<Evento> listaOpciones;
 
-	public CustomAdapterEventCalendar(Context context, List<Calendar> opciones) {
+	public CustomAdapterEventsUSer(Context context, List<Evento> opciones) {
 		this.context = context;
 		this.listaOpciones = opciones;
 	}
 
 	private class viewHolder {
 		ImageView imageEvent;
-		TextView txtEvento;
-		TextView txtFechaInicio;
-		TextView txtTipoEvento;
-		TextView txtNivelEvento;
+		TextView txtCreadorNAme;
+		TextView txtFechaEvento;
+		TextView txtDeporteEvento;
+		TextView txtUbicacionEvento;
 	}
 
 	@Override
@@ -39,22 +38,24 @@ public class CustomAdapterEventCalendar extends BaseAdapter {
 				.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		if (convertView == null) {
 
-			convertView = mInflater.inflate(R.layout.calendar_event_layout,
-					null);
+			convertView = mInflater
+					.inflate(R.layout.events_dialog_custom, null);
 
 			holder = new viewHolder();
 			holder.imageEvent = (ImageView) convertView
-					.findViewById(R.id.imagenevento);
+					.findViewById(R.id.imagenEvento1);
 			convertView.setTag(holder);
-			holder.txtEvento = (TextView) convertView
-					.findViewById(R.id.txttituloevento);
-			holder.txtFechaInicio = (TextView) convertView
-					.findViewById(R.id.txtfechainicio);
-			holder.txtNivelEvento = (TextView) convertView
-					.findViewById(R.id.txtnivelevento);
-			holder.txtTipoEvento = (TextView) convertView
-					.findViewById(R.id.txttipoevento);
+			holder.txtCreadorNAme = (TextView) convertView
+					.findViewById(R.id.txtCreadorName);
+			holder.txtFechaEvento = (TextView) convertView
+					.findViewById(R.id.txtFechaEvento1);
+			holder.txtDeporteEvento = (TextView) convertView
+					.findViewById(R.id.txtDeporteEvento);
+			holder.txtUbicacionEvento = (TextView) convertView
+					.findViewById(R.id.txtUbicacionEvento);
+			
 			convertView.setTag(holder);
+
 
 		} else {
 			holder = (viewHolder) convertView.getTag();
@@ -66,12 +67,13 @@ public class CustomAdapterEventCalendar extends BaseAdapter {
 		// holder.imagenOpcioes.setImageBitmap(option.getImagenOpcion());
 
 		// holder.imagen.setText(s);
-		Calendar c = getItem(position);
-		holder.txtEvento.setText(c.getEvento());
-		holder.txtFechaInicio.setText(c.getFechaInicio());
-		holder.txtTipoEvento.setText(c.getTipo());
-		holder.txtNivelEvento.setText(c.getNivel() + "/" + c.getPais() + "/"
-				+ c.getTerritorio());
+		Evento e = getItem(position);
+		holder.txtCreadorNAme.setText(e.getCreador().getUsername());
+		holder.txtDeporteEvento.setText(e.getDeporte());
+		holder.txtFechaEvento.setText(e.getFecha() + "Hora: "
+				+ e.getHoraEncuentro());
+		holder.txtUbicacionEvento.setText(e.getDepartamento() + "-"
+				+ e.getDireccion());
 
 		return convertView;
 	}
@@ -83,7 +85,7 @@ public class CustomAdapterEventCalendar extends BaseAdapter {
 	}
 
 	@Override
-	public Calendar getItem(int arg0) {
+	public Evento getItem(int arg0) {
 		// TODO Auto-generated method stub
 		return listaOpciones.get(arg0);
 	}

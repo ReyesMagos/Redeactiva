@@ -1,11 +1,15 @@
 package co.gov.coldeportes.redeactiva.redapptiva.controladores;
 
+import java.util.List;
+
 import co.gov.coldeportes.redeactiva.redapptiva.CreateEventActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.EventsActivity;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
 import co.gov.coldeportes.redeactiva.redapptiva.activities.MainActivity;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.CalendarDAO;
+import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
 import android.app.Activity;
 
 public class FacadeController {
@@ -38,15 +42,23 @@ public class FacadeController {
 			eventsController = new EventsController(activity);
 			CalendarDAO calendarDAO = new CalendarDAO();
 			calendarDAO.executeAsyncTaskDAO();
+			EventoDAO eventoDAO = new EventoDAO();
+			eventoDAO.getEvents("Baloncesto");
 			eventsController.showProgressDialog("Alerta",
 					"Consultando Eventos Deportivos Espere Por Favor");
 		}
 	}
-	public void dissmissEVentsActivityProgress(){
+
+	public void dissmissEVentsActivityProgress() {
 		eventsController.dissmissProgressDialog();
 	}
+
 	public void showCalendarEvents() {
 		eventsController.showCalendarEvents();
+	}
+
+	public void showUserEvents(List<Evento> listaEventos) {
+		eventsController.showUserEventsFinded(listaEventos);
 	}
 
 	public void createEvent(String fecha, String numMax, String numMin,

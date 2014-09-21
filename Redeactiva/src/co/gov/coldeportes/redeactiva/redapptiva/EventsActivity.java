@@ -21,8 +21,7 @@ public class EventsActivity extends ActionBarActivity {
 
 		init();
 		FacadeController.getInstance().registerToController(this);
-		EventoDAO eventoDAO = new EventoDAO();
-		eventoDAO.getEvents("Baloncesto");
+	
 
 	}
 

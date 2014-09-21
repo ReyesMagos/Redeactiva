@@ -94,5 +94,6 @@ public class EventoDAO extends AbstractDAO {
 			listaEventos.add(e);
 
 		}
+		FacadeController.getInstance().showUserEvents(listaEventos);
 	}
 }
