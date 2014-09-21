@@ -49,6 +49,10 @@ public class MainActivity extends ActionBarActivity {
 
 		editTextPassword = (EditText) findViewById(R.id.edittext_password1);
 	}
+	
+	public void btnInvitado_Click(View v){
+		facadeController.login("invitado", "invitado");	
+	}
 
 	public void btnLogin_Click(View v) {
 		String username = editTextUsername.getText().toString();

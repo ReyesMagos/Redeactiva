@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -88,9 +90,16 @@ public class PrincipalGridActivity extends ActionBarActivity {
 		// 6
 		opcionesGrid = new OpcionesGrid();
 		opcionesGrid.setImageSource(BitmapFactory.decodeResource(
-				getResources(), R.drawable.boton_misdeportes));
+				getResources(), R.drawable.boton_crear_grupo));
 		opcionesGrid
 				.setOptionName("Crear Grupo, Pulsando esta opcion podras crear grupos añadiendo a otros amigos, para practicar tu deporte favorito");
+		lista.add(opcionesGrid);
+
+		opcionesGrid = new OpcionesGrid();
+		opcionesGrid.setImageSource(BitmapFactory.decodeResource(
+				getResources(), R.drawable.boton_buscar_amigos));
+		opcionesGrid
+				.setOptionName("Buscar Amigos, Pulsando esta opcion podras encontrar Amigos dentro de la aplicacion");
 		lista.add(opcionesGrid);
 		CustomAdapterGridPrincipal adapterGridPrincipal = new CustomAdapterGridPrincipal(
 				this, lista);
@@ -111,15 +120,28 @@ public class PrincipalGridActivity extends ActionBarActivity {
 					startActivity(i);
 					break;
 				case 1:
-					FacadeController.getInstance().setActivitySelectedFromGrid(
-							"Publicacion_Evento");
-					Intent i1 = new Intent(getApplicationContext(),
-							GridSportActivity.class);
-					startActivity(i1);
+					if (FacadeController.getInstance().getLoggedUser()
+							.getUserType() == 1) {
+						FacadeController.getInstance()
+								.setActivitySelectedFromGrid(
+										"Publicacion_Evento");
+						Intent i1 = new Intent(getApplicationContext(),
+								GridSportActivity.class);
+						startActivity(i1);
+					} else {
+						showAlertMessage("Alerta",
+								"Eres Usuario Invitado no puede realizar esta accion");
+					}
 					break;
 				case 2:
-					FacadeController.getInstance().setActivitySelectedFromGrid(
-							"Perfil");
+					if (FacadeController.getInstance().getLoggedUser()
+							.getUserType() == 1) {
+						FacadeController.getInstance()
+								.setActivitySelectedFromGrid("Perfil");
+					} else {
+						showAlertMessage("Alerta",
+								"Eres Usuario Invitado no puede realizar esta accion");
+					}
 					break;
 				case 3:
 					FacadeController.getInstance().setActivitySelectedFromGrid(
@@ -137,18 +159,30 @@ public class PrincipalGridActivity extends ActionBarActivity {
 					startActivity(i44);
 					break;
 				case 5:
-					FacadeController.getInstance().setActivitySelectedFromGrid(
-							"Mis_Deportes");
-					Intent i2 = new Intent(getApplicationContext(),
-							GridSportActivity.class);
-					startActivity(i2);
+					if (FacadeController.getInstance().getLoggedUser()
+							.getUserType() == 1) {
+						FacadeController.getInstance()
+								.setActivitySelectedFromGrid("Mis_Deportes");
+						Intent i2 = new Intent(getApplicationContext(),
+								GridSportActivity.class);
+						startActivity(i2);
+					} else {
+						showAlertMessage("Alerta",
+								"Eres Usuario Invitado no puede realizar esta accion");
+					}
 					break;
 				case 6:
-					FacadeController.getInstance().setActivitySelectedFromGrid(
-							"Mis_Deportes");
-					Intent i22 = new Intent(getApplicationContext(),
-							CrearGrupoActivity.class);
-					startActivity(i22);
+					if (FacadeController.getInstance().getLoggedUser()
+							.getUserType() == 1) {
+						FacadeController.getInstance()
+								.setActivitySelectedFromGrid("Crear_Grupo");
+						Intent i22 = new Intent(getApplicationContext(),
+								CrearGrupoActivity.class);
+						startActivity(i22);
+					} else {
+						showAlertMessage("Alerta",
+								"Eres Usuario Invitado no puede realizar esta accion");
+					}
 					break;
 				}
 
@@ -161,6 +195,22 @@ public class PrincipalGridActivity extends ActionBarActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.principal_grid, menu);
 		return true;
+	}
+
+	public void showAlertMessage(String title, String message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(title);
+
+		builder.setMessage(message).setPositiveButton("OK",
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+
+					}
+				});
+
+		AlertDialog dialog = builder.show();
+		dialog.show();
 	}
 
 	@Override

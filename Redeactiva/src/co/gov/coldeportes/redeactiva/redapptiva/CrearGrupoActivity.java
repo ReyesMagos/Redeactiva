@@ -14,20 +14,32 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class CrearGrupoActivity extends ActionBarActivity {
 
+	private ImageView qrCode;
+
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ActionBar action = getActionBar();
+		action.setTitle("Crear Grupo");
 		setContentView(R.layout.activity_crear_grupo);
+		qrCode = (ImageView) findViewById(R.id.qrCode);
 		QRCodeEncoder qrCodeEncoder = new QRCodeEncoder("Nombre de Usuario: "
 				+ FacadeController.getInstance().getLoggedUser().getUsername()
 				+ " Discapcidad: "
@@ -37,7 +49,7 @@ public class CrearGrupoActivity extends ActionBarActivity {
 
 		try {
 			Bitmap bitmap = qrCodeEncoder.encodeAsBitmap();
-
+			qrCode.setImageBitmap(bitmap);
 			save(bitmap);
 
 		} catch (WriterException e) {
