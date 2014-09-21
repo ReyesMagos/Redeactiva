@@ -8,10 +8,12 @@ import android.util.Log;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Evento;
+import co.gov.coldeportes.redeactiva.redapptiva.entity.model.Usuario;
 
 public class EventoDAO extends AbstractDAO {
 
@@ -62,6 +64,35 @@ public class EventoDAO extends AbstractDAO {
 			Evento e = new Evento();
 			e.setObjectId(parseObject.getObjectId());
 			e.setDeporte(parseObject.getString("deporte"));
+			e.setFecha(parseObject.getString("fecha"));
+			e.setMaximoNumeroParticipantes(parseObject
+					.getInt("maximoNumeroParticipantes"));
+			e.setMinimoNumeroParticipantes(parseObject
+					.getInt("minimoNumeroParticipantes"));
+			e.setDepartamento(parseObject.getString("departamento"));
+			e.setMunicipio(parseObject.getString("municipio"));
+			e.setDireccion(parseObject.getString("direccion"));
+			e.setHoraEncuentro(parseObject.getString("horaEncuentro"));
+			try {
+				ParseUser user = parseObject.getParseObject("creador").fetch();
+				Usuario usuario = new Usuario();
+				usuario.setNombre(user.getString("name"));
+				usuario.setEmail(user.getEmail());
+				usuario.setUsername(user.getUsername());
+				usuario.setUserType(user.getInt("userType"));
+				usuario.setDepartamento(user.getString("departamento"));
+				usuario.setMunicipio(user.getString("municipio"));
+				if (usuario.getUserType() == 1) {
+					usuario.setDiscapacity(user.getString("discapacity"));
+				}
+				usuario.setUseR(user);
+				e.setCreador(usuario);
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			listaEventos.add(e);
+
 		}
 	}
 }

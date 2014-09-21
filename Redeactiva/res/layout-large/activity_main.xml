@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:contentDescription="Campo para Ingresar su Nombre de Usuario"
             android:ems="10"
-            android:text="" >
+            android:text="oscarg798" >
 
             <requestFocus />
         </EditText>
@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:contentDescription="Campo para Ingresar su Contraseña"
             android:ems="10"
-            android:text="" >
+            android:text="oscardx" >
         </EditText>
     </LinearLayout>
 
