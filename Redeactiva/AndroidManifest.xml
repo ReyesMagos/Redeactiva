@@ -41,6 +41,10 @@
             android:name=".activities.ProjectSearchActivity"
             android:label="@string/project_search_title" >
         </activity>
+        <activity
+            android:name=".MultimediaActivity"
+            android:label="@string/title_activity_multimedia" >
+        </activity>
     </application>
 
 </manifest>

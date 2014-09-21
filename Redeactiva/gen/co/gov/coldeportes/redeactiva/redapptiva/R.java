@@ -1255,19 +1255,21 @@ containing a value of this type.
         public static final int activity_create_event=0x7f030018;
         public static final int activity_events=0x7f030019;
         public static final int activity_main=0x7f03001a;
-        public static final int activity_news=0x7f03001b;
-        public static final int calendar_event_layout=0x7f03001c;
-        public static final int evento_dialog_info_custom_alert=0x7f03001d;
-        public static final int events_dialog_custom=0x7f03001e;
-        public static final int project_search_activity=0x7f03001f;
-        public static final int sing_up_layout=0x7f030020;
-        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int activity_multimedia=0x7f03001b;
+        public static final int activity_news=0x7f03001c;
+        public static final int calendar_event_layout=0x7f03001d;
+        public static final int evento_dialog_info_custom_alert=0x7f03001e;
+        public static final int events_dialog_custom=0x7f03001f;
+        public static final int project_search_activity=0x7f030020;
+        public static final int sing_up_layout=0x7f030021;
+        public static final int support_simple_spinner_dropdown_item=0x7f030022;
     }
     public static final class menu {
         public static final int create_event=0x7f0c0000;
         public static final int events=0x7f0c0001;
         public static final int main=0x7f0c0002;
-        public static final int news=0x7f0c0003;
+        public static final int multimedia=0x7f0c0003;
+        public static final int news=0x7f0c0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1335,6 +1337,7 @@ containing a value of this type.
         public static final int sport_label=0x7f0a0020;
         public static final int title_activity_create_event=0x7f0a001f;
         public static final int title_activity_events=0x7f0a001e;
+        public static final int title_activity_multimedia=0x7f0a0028;
         public static final int title_activity_news=0x7f0a001d;
         public static final int username_label=0x7f0a0010;
     }

@@ -24,10 +24,10 @@
     <string name="fecha_label">Fecha</string>
     <string name="max_num_participantes_label">Max Numero de Participantes</string>
     <string name="mim_num_participantes_label">Min Numero de Participantes</string>
-     <string name="lugar_label">lugar</string>
-     <string name="description_list_projects">Lista con el portafolio de proyectos para su ubicación</string>
-     <string name="project_search_title">Portafolio de proyectos</string>
-     <string name="hora_label">Hora</string>
-     
+    <string name="lugar_label">lugar</string>
+    <string name="description_list_projects">Lista con el portafolio de proyectos para su ubicación</string>
+    <string name="project_search_title">Portafolio de proyectos</string>
+    <string name="hora_label">Hora</string>
+    <string name="title_activity_multimedia">MultimediaActivity</string>
 
 </resources>
