@@ -73,9 +73,13 @@ public class LoginController extends AbstractController {
 						loggedUser.setDiscapacity(arg0.getString("discapacity"));
 					}
 					Log.i("User", "REgistrado");
+					loggedUser.setUseR(arg0);
 					FacadeController.getInstance().setLoggedUser(loggedUser);
-					//TODO:cambiar ahorita
+					// TODO:cambiar ahorita
 					changeActivity(PrincipalGridActivity.class);
+				} else {
+					showAlertMessage("Alerta", "Ocurrio un Error Al ingresar: "
+							+ arg1.getMessage().toString());
 				}
 				dissmissProgressDialog();
 			}

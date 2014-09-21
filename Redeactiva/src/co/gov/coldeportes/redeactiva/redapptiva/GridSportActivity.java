@@ -3,17 +3,22 @@ package co.gov.coldeportes.redeactiva.redapptiva;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.OpcionesGrid;
 import co.gov.coldeportes.redeactiva.redapptiva.entity.model.adaptadores.CustomAdapterGridPrincipal;
 import android.support.v7.app.ActionBarActivity;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 @SuppressLint("NewApi")
@@ -33,8 +38,7 @@ public class GridSportActivity extends ActionBarActivity {
 		action.setTitle("Seleccion de Deporte");
 		action.setBackgroundDrawable(getResources().getDrawable(
 				R.drawable.barra));
-		CustomAdapterGridPrincipal customAdapterGridPrincipal = new CustomAdapterGridPrincipal(
-				this, null);
+
 		// action.setBackgroundDrawable(d)
 		List<OpcionesGrid> lista = new ArrayList<OpcionesGrid>();
 
@@ -67,8 +71,58 @@ public class GridSportActivity extends ActionBarActivity {
 				getResources(), R.drawable.boton_esgrima));
 		opcionesGrid.setOptionName("Esgrima");
 		lista.add(opcionesGrid);
-
+		CustomAdapterGridPrincipal customAdapterGridPrincipal = new CustomAdapterGridPrincipal(
+				this, lista);
 		gridSpoGridView.setAdapter(customAdapterGridPrincipal);
+
+		gridSpoGridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				Intent i;
+				switch (arg2) {
+				case 0:
+					FacadeController.getInstance().setSportSelected("Arco");
+					break;
+				case 1:
+					FacadeController.getInstance()
+							.setSportSelected("Atletismo");
+					break;
+				case 2:
+					FacadeController.getInstance().setSportSelected(
+							"Baloncesto");
+					break;
+				case 3:
+					FacadeController.getInstance().setSportSelected("Ciclismo");
+					break;
+				case 4:
+					FacadeController.getInstance().setSportSelected("Esgrima");
+					break;
+
+				}
+
+				if (FacadeController.getInstance()
+						.getActivitySelectedFromGrid()
+						.equals("Busqueda_Evento")) {
+					i = new Intent(getApplicationContext(),
+							EventsActivity.class);
+					startActivity(i);
+
+				} else if (FacadeController.getInstance()
+						.getActivitySelectedFromGrid()
+						.equals("Publicacion_Evento")) {
+					i = new Intent(getApplicationContext(),
+							CreateEventActivity.class);
+					startActivity(i);
+
+				} else {
+
+				}
+
+			}
+		});
 
 	}
 

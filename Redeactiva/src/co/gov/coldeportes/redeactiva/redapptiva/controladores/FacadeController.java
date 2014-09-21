@@ -22,10 +22,27 @@ public class FacadeController {
 	private EventsController eventsController;
 	private Usuario loggedUser;
 	private String sportSelected;
+	private String activitySelectedFromGrid;
 	private MultimediaController multimediaController;
 
 	private FacadeController() {
 
+	}
+
+	public String getActivitySelectedFromGrid() {
+		return activitySelectedFromGrid;
+	}
+
+	public String getSportSelected() {
+		return sportSelected;
+	}
+
+	public void setSportSelected(String sportSelected) {
+		this.sportSelected = sportSelected;
+	}
+
+	public void setActivitySelectedFromGrid(String activitySelectedFromGrid) {
+		this.activitySelectedFromGrid = activitySelectedFromGrid;
 	}
 
 	public static FacadeController getInstance() {
@@ -46,7 +63,7 @@ public class FacadeController {
 			CalendarDAO calendarDAO = new CalendarDAO();
 			calendarDAO.executeAsyncTaskDAO();
 			EventoDAO eventoDAO = new EventoDAO();
-			eventoDAO.getEvents("Baloncesto");
+			eventoDAO.getEvents(sportSelected);
 			eventsController.showProgressDialog("Alerta",
 					"Consultando Eventos Deportivos Espere Por Favor");
 		}
@@ -84,7 +101,7 @@ public class FacadeController {
 	public void createEvent(String fecha, String numMax, String numMin,
 			String lugar, String departamento, String municipio, String hora) {
 		createEventController.createEvent(fecha, numMax, numMin, lugar,
-				departamento, municipio, hora, "Baloncesto");
+				departamento, municipio, hora, sportSelected);
 
 	}
 

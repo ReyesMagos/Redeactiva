@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import co.gov.coldeportes.redeactiva.redapptiva.R;
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.ProjectDAO;
 
 public class CreateEventActivity extends Activity {
@@ -15,14 +19,16 @@ public class CreateEventActivity extends Activity {
 	private EditText txtNumMinParticipantes;
 	private EditText txtLugar;
 	private DatePicker fechaPicker;
+	private TimePicker hourPicker;
+	private TextView txtSport;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_event);
-		
-		ProjectDAO projectDAO = new ProjectDAO();
-		projectDAO.executeAsyncTaskDAO();
+		init();
+		FacadeController.getInstance().registerToController(this);
+
 	}
 
 	@Override
@@ -33,12 +39,35 @@ public class CreateEventActivity extends Activity {
 
 	}
 
+	public void btnCreateEvent_Click(View v) {
+		String fecha = fechaPicker.getDayOfMonth() + "/"
+				+ Integer.toString(fechaPicker.getMonth() + 1) + "/"
+				+ fechaPicker.getYear();
+		String numMax = txtNumMaxParticipantes.getText().toString();
+		String numMin = txtNumMinParticipantes.getText().toString();
+		String lugar = txtLugar.getText().toString();
+		String hora = hourPicker.getCurrentHour() + ":"
+				+ hourPicker.getCurrentMinute();
+		FacadeController.getInstance().createEvent(
+				fecha,
+				numMax,
+				numMin,
+				lugar,
+				FacadeController.getInstance().getLoggedUser()
+						.getDepartamento(),
+				FacadeController.getInstance().getLoggedUser().getMunicipio(),
+				hora);
+	}
+
 	public void init() {
 
 		fechaPicker = (DatePicker) findViewById(R.id.fechapicker);
 		txtNumMaxParticipantes = (EditText) findViewById(R.id.txtmaxnumparticipantntes);
 		txtNumMinParticipantes = (EditText) findViewById(R.id.txtminnumparticipantes);
 		txtLugar = (EditText) findViewById(R.id.txtLugar);
+		hourPicker = (TimePicker) findViewById(R.id.horapicker);
+		txtSport = (TextView) findViewById(R.id.txtsport2);
+		txtSport.setText(FacadeController.getInstance().getSportSelected());
 	}
 
 	@Override
