@@ -2,6 +2,7 @@ package co.gov.coldeportes.redeactiva.redapptiva.service.asynctask;
 
 import java.util.List;
 
+import co.gov.coldeportes.redeactiva.redapptiva.controladores.FacadeController;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.AbstractDAO;
 import co.gov.coldeportes.redeactiva.redapptiva.service.dao.EventoDAO;
 
@@ -45,6 +46,7 @@ public class ParseAsyncTask extends AsyncTask<ParseQuery, String, Boolean> {
 			if (ownerDAO instanceof EventoDAO) {
 				EventoDAO e = (EventoDAO) ownerDAO;
 				e.createAndShowEvents(daoResults);
+				FacadeController.getInstance().dissmissEVentsActivityProgress();
 
 			}
 

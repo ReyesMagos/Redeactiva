@@ -6,11 +6,21 @@
     android:orientation="vertical"
     tools:context="co.gov.coldeportes.redeactiva.redapptiva.EventsActivity" >
 
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.17"
+        android:text="Eventos Coldeportes y Comite ParaOlimpico"
+        android:textSize="20sp" />
+
     <ListView
         android:id="@+id/listCalendarEvents"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:contentDescription="En esta Lista se muestran los eventos proximos a realizarsen nacional e internacionalmente, organizador por coldeportes y el comite paraolimpico"
         android:divider="@android:color/holo_green_dark"
         android:dividerHeight="4sp" >
     </ListView>
@@ -29,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:contentDescription="En esta lista se muestran los eventos organizados por otros usuarios que estan proximos a realizarcen y a los cuales usted se puede sumar para realizar actividad deportiva"
         android:divider="@android:color/holo_blue_light"
         android:dividerHeight="4sp" >
     </ListView>

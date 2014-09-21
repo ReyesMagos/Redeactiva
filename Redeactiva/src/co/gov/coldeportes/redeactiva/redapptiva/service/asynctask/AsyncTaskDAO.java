@@ -55,7 +55,7 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 			if (abstractDAO instanceof CalendarDAO) {
 				CalendarDAO calendarDAO = (CalendarDAO) abstractDAO;
 				calendarDAO.fillCalendar(restFulResponseArray);
-				FacadeController.getInstance().dissmissEVentsActivityProgress();
+				//FacadeController.getInstance().dissmissEVentsActivityProgress();
 				FacadeController.getInstance().showCalendarEvents();
 
 			} else if (abstractDAO instanceof ProjectDAO) {
@@ -66,7 +66,7 @@ public class AsyncTaskDAO extends AsyncTask<String, Integer, Boolean> {
 		} else {
 			if (abstractDAO instanceof CalendarDAO) {
 
-				FacadeController.getInstance().dissmissEVentsActivityProgress();
+				//FacadeController.getInstance().dissmissEVentsActivityProgress();
 
 			}
 		}
